@@ -17,6 +17,13 @@ public class ThreadPriorityDemo {
 		t1.start();
 		t2.start();
 		
+		try {
+			//main thread is suspended until t2 dies
+			t2.join();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		
 		System.out.println("Inside main ... ");
 	}
 	
